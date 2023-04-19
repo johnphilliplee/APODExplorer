@@ -24,6 +24,7 @@ class PhotosViewController: UIViewController {
         super.viewDidLoad()
         
         collectionView.dataSource = dataSource
+        collectionView.delegate = self
         
         fetchData()
     }
@@ -57,7 +58,7 @@ class PhotosViewController: UIViewController {
         
     private func fetchData() {
         let startDate = Date().addingTimeInterval(-(30 * 24 * 60 * 60))
-        let endDate = Date()
+        let endDate = Date().addingTimeInterval(-(1 * 24 * 60 * 60))
 
         viewModel.fetchAPODS(start: startDate, end: endDate) { [weak self] result in
             switch result {
@@ -69,5 +70,18 @@ class PhotosViewController: UIViewController {
                 print("Error: \(error.localizedDescription)")
             }
         }
+    }
+}
+
+extension PhotosViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let apod = viewModel.apod(atIndex: indexPath.item) else {
+            return
+        }
+                
+        let detailViewController = PhotoDetailViewController(apod: apod)
+        let navigationController = UINavigationController(rootViewController: detailViewController)
+        navigationController.modalPresentationStyle = .fullScreen
+        present(navigationController, animated: true)
     }
 }
