@@ -14,6 +14,7 @@
 		0D65012429EFA00300BB0ED6 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012329EFA00300BB0ED6 /* APODViewModel.swift */; };
 		0D65012C29EFAD6B00BB0ED6 /* APODViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012B29EFAD6B00BB0ED6 /* APODViewModelTests.swift */; };
 		0D65013329EFBAE400BB0ED6 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65013229EFBAE400BB0ED6 /* PhotoDetailViewController.swift */; };
+		0D65013529F09DD400BB0ED6 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65013429F09DD400BB0ED6 /* ImageLoader.swift */; };
 		0D808AA229EE651100F40BC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA129EE651100F40BC3 /* AppDelegate.swift */; };
 		0D808AA429EE651100F40BC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA329EE651100F40BC3 /* SceneDelegate.swift */; };
 		0D808AA629EE651100F40BC3 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA529EE651100F40BC3 /* PhotosViewController.swift */; };
@@ -42,6 +43,7 @@
 		0D65012929EFAD6B00BB0ED6 /* APODExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APODExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D65012B29EFAD6B00BB0ED6 /* APODViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModelTests.swift; sourceTree = "<group>"; };
 		0D65013229EFBAE400BB0ED6 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		0D65013429F09DD400BB0ED6 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		0D808A9E29EE651100F40BC3 /* APODExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APODExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D808AA129EE651100F40BC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D808AA329EE651100F40BC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 			children = (
 				0D65011E29EF729C00BB0ED6 /* APODService.swift */,
 				0D65012029EF9F4500BB0ED6 /* NetworkService.swift */,
+				0D65013429F09DD400BB0ED6 /* ImageLoader.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 			files = (
 				0D808AA629EE651100F40BC3 /* PhotosViewController.swift in Sources */,
 				0D808AB629EE70FA00F40BC3 /* APODCell.swift in Sources */,
+				0D65013529F09DD400BB0ED6 /* ImageLoader.swift in Sources */,
 				0D808AA229EE651100F40BC3 /* AppDelegate.swift in Sources */,
 				0D65011A29EF6BF500BB0ED6 /* APOD.swift in Sources */,
 				0D808AA429EE651100F40BC3 /* SceneDelegate.swift in Sources */,

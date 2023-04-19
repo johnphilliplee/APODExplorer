@@ -3,8 +3,9 @@ import UIKit
 
 /// Demonstrating building UI via code
 class PhotoDetailViewController: UIViewController {
-    init(apod: APOD) {
+    init(apod: APOD, imageLoader: ImageLoader) {
         self.apod = apod
+        self.imageLoader = imageLoader
         
         super.init(nibName: nil, bundle: nil)
         
@@ -18,6 +19,7 @@ class PhotoDetailViewController: UIViewController {
     }
     
     private let apod: APOD
+    private let imageLoader: ImageLoader
     private var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
@@ -48,14 +50,7 @@ class PhotoDetailViewController: UIViewController {
         
         // Set the image using the apod property
         if let imageURL = URL(string: apod.url) {
-            DispatchQueue.global(qos: .userInitiated).async { [weak self] in
-                if let imageData = try? Data(contentsOf: imageURL),
-                   let image = UIImage(data: imageData) {
-                    DispatchQueue.main.async {
-                        self?.backgroundImageView.image = image
-                    }
-                }
-            }
+            backgroundImageView.load(url: imageURL, using: imageLoader)
         }
     }
     

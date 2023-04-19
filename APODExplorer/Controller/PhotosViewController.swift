@@ -10,13 +10,14 @@ class PhotosViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         self.viewModel = APODViewModel(apodService: NASAAPODService(networkService: APODNetworkService()))
-        self.dataSource = PhotosViewControllerDataSource(viewModel: viewModel)
+        self.dataSource = PhotosViewControllerDataSource(viewModel: viewModel, imageLoader: imageLoader)
 
         super.init(coder: coder)
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let imageLoader = ImageLoader()
     private var viewModel: APODViewModel
     private var dataSource: PhotosViewControllerDataSource
     
@@ -79,7 +80,7 @@ extension PhotosViewController: UICollectionViewDelegate {
             return
         }
                 
-        let detailViewController = PhotoDetailViewController(apod: apod)
+        let detailViewController = PhotoDetailViewController(apod: apod, imageLoader: imageLoader)
         let navigationController = UINavigationController(rootViewController: detailViewController)
         navigationController.modalPresentationStyle = .fullScreen
         present(navigationController, animated: true)
