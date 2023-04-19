@@ -12,7 +12,7 @@
 		0D65011F29EF729C00BB0ED6 /* APODService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65011E29EF729C00BB0ED6 /* APODService.swift */; };
 		0D65012129EF9F4500BB0ED6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012029EF9F4500BB0ED6 /* NetworkService.swift */; };
 		0D65012429EFA00300BB0ED6 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012329EFA00300BB0ED6 /* APODViewModel.swift */; };
-		0D65012C29EFAD6B00BB0ED6 /* APODExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012B29EFAD6B00BB0ED6 /* APODExplorerTests.swift */; };
+		0D65012C29EFAD6B00BB0ED6 /* APODViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012B29EFAD6B00BB0ED6 /* APODViewModelTests.swift */; };
 		0D808AA229EE651100F40BC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA129EE651100F40BC3 /* AppDelegate.swift */; };
 		0D808AA429EE651100F40BC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA329EE651100F40BC3 /* SceneDelegate.swift */; };
 		0D808AA629EE651100F40BC3 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA529EE651100F40BC3 /* PhotosViewController.swift */; };
@@ -39,7 +39,7 @@
 		0D65012029EF9F4500BB0ED6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		0D65012329EFA00300BB0ED6 /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
 		0D65012929EFAD6B00BB0ED6 /* APODExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = APODExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0D65012B29EFAD6B00BB0ED6 /* APODExplorerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODExplorerTests.swift; sourceTree = "<group>"; };
+		0D65012B29EFAD6B00BB0ED6 /* APODViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModelTests.swift; sourceTree = "<group>"; };
 		0D808A9E29EE651100F40BC3 /* APODExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APODExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D808AA129EE651100F40BC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D808AA329EE651100F40BC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		0D65012A29EFAD6B00BB0ED6 /* APODExplorerTests */ = {
 			isa = PBXGroup;
 			children = (
-				0D65012B29EFAD6B00BB0ED6 /* APODExplorerTests.swift */,
+				0D65012B29EFAD6B00BB0ED6 /* APODViewModelTests.swift */,
 			);
 			path = APODExplorerTests;
 			sourceTree = "<group>";
@@ -280,7 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0D65012C29EFAD6B00BB0ED6 /* APODExplorerTests.swift in Sources */,
+				0D65012C29EFAD6B00BB0ED6 /* APODViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
