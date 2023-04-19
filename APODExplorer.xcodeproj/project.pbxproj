@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0D65011A29EF6BF500BB0ED6 /* APOD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65011929EF6BF500BB0ED6 /* APOD.swift */; };
 		0D65011C29EF6C8F00BB0ED6 /* APOD-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0D65011B29EF6C8F00BB0ED6 /* APOD-Info.plist */; };
+		0D65011F29EF729C00BB0ED6 /* APODService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65011E29EF729C00BB0ED6 /* APODService.swift */; };
+		0D65012129EF9F4500BB0ED6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012029EF9F4500BB0ED6 /* NetworkService.swift */; };
+		0D65012429EFA00300BB0ED6 /* APODViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D65012329EFA00300BB0ED6 /* APODViewModel.swift */; };
 		0D808AA229EE651100F40BC3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA129EE651100F40BC3 /* AppDelegate.swift */; };
 		0D808AA429EE651100F40BC3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA329EE651100F40BC3 /* SceneDelegate.swift */; };
 		0D808AA629EE651100F40BC3 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D808AA529EE651100F40BC3 /* PhotosViewController.swift */; };
@@ -21,6 +24,9 @@
 /* Begin PBXFileReference section */
 		0D65011929EF6BF500BB0ED6 /* APOD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APOD.swift; sourceTree = "<group>"; };
 		0D65011B29EF6C8F00BB0ED6 /* APOD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "APOD-Info.plist"; sourceTree = "<group>"; };
+		0D65011E29EF729C00BB0ED6 /* APODService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODService.swift; sourceTree = "<group>"; };
+		0D65012029EF9F4500BB0ED6 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0D65012329EFA00300BB0ED6 /* APODViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APODViewModel.swift; sourceTree = "<group>"; };
 		0D808A9E29EE651100F40BC3 /* APODExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APODExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D808AA129EE651100F40BC3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0D808AA329EE651100F40BC3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -69,6 +75,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0D65011D29EF729000BB0ED6 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				0D65011E29EF729C00BB0ED6 /* APODService.swift */,
+				0D65012029EF9F4500BB0ED6 /* NetworkService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		0D65012229EF9FEB00BB0ED6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				0D65012329EFA00300BB0ED6 /* APODViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		0D808A9529EE651100F40BC3 = {
 			isa = PBXGroup;
 			children = (
@@ -90,9 +113,11 @@
 			children = (
 				0D808AA129EE651100F40BC3 /* AppDelegate.swift */,
 				0D808AA329EE651100F40BC3 /* SceneDelegate.swift */,
+				0D65011D29EF729000BB0ED6 /* Service */,
 				0D65011829EF6BEB00BB0ED6 /* Model */,
 				0D65011029EF60A200BB0ED6 /* View */,
 				0D65010F29EF608F00BB0ED6 /* Controller */,
+				0D65012229EF9FEB00BB0ED6 /* ViewModel */,
 				0D808AAA29EE651200F40BC3 /* Assets.xcassets */,
 				0D65011B29EF6C8F00BB0ED6 /* APOD-Info.plist */,
 				0D808AAF29EE651200F40BC3 /* Info.plist */,
@@ -200,6 +225,9 @@
 				0D808AA229EE651100F40BC3 /* AppDelegate.swift in Sources */,
 				0D65011A29EF6BF500BB0ED6 /* APOD.swift in Sources */,
 				0D808AA429EE651100F40BC3 /* SceneDelegate.swift in Sources */,
+				0D65011F29EF729C00BB0ED6 /* APODService.swift in Sources */,
+				0D65012429EFA00300BB0ED6 /* APODViewModel.swift in Sources */,
+				0D65012129EF9F4500BB0ED6 /* NetworkService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
