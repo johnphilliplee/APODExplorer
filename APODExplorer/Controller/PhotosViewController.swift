@@ -83,6 +83,11 @@ extension PhotosViewController: UICollectionViewDelegate {
         let detailViewController = PhotoDetailViewController(apod: apod, imageLoader: imageLoader)
         let navigationController = UINavigationController(rootViewController: detailViewController)
         navigationController.modalPresentationStyle = .fullScreen
+        
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithTransparentBackground()
+        UINavigationBar.appearance().standardAppearance = appearance
+        
         present(navigationController, animated: true)
     }
 }
