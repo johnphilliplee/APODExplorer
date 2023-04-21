@@ -20,7 +20,7 @@ class PhotoDetailViewController: UIViewController {
     
     private let apod: APOD
     private let imageLoader: ImageLoader
-    private var iamgeView: UIImageView = {
+    private var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.backgroundColor = .gray
         imageView.contentMode = .scaleAspectFill
@@ -61,7 +61,9 @@ class PhotoDetailViewController: UIViewController {
         explanationLabel.text = apod.explanation
         
         if let imageURL = URL(string: apod.url) {
-            iamgeView.load(url: imageURL, using: imageLoader)
+            Task {
+                imageView.image = try await imageLoader.image(for: imageURL)
+            }
         }
         
         setupUI()
@@ -96,14 +98,14 @@ class PhotoDetailViewController: UIViewController {
             containerView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
         ])
         
-        containerView.addSubview(iamgeView)
-        iamgeView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            iamgeView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            iamgeView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            iamgeView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            iamgeView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
+            imageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.5)
         ])
                         
         let textStackView = UIStackView(arrangedSubviews: [titleLabel, dateLabel, explanationLabel])
@@ -115,7 +117,7 @@ class PhotoDetailViewController: UIViewController {
         textStackView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            textStackView.topAnchor.constraint(equalTo: iamgeView.bottomAnchor, constant: 16),
+            textStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 16),
             textStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 16),
             containerView.trailingAnchor.constraint(equalTo: textStackView.trailingAnchor, constant: 16),
             containerView.bottomAnchor.constraint(equalTo: textStackView.bottomAnchor, constant: 16)
