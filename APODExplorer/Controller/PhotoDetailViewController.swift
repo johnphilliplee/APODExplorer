@@ -11,7 +11,11 @@ class PhotoDetailViewController: UIViewController {
         
         let dismissButton = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(dismissDetailScreen))
         dismissButton.tintColor = .white
-        navigationItem.rightBarButtonItem = dismissButton        
+        navigationItem.rightBarButtonItem = dismissButton
+        
+        let saveButton = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveToPhotoLibrary))
+        saveButton.tintColor = .white
+        navigationItem.leftBarButtonItem = saveButton
     }
     
     required init?(coder: NSCoder) {
@@ -123,6 +127,26 @@ class PhotoDetailViewController: UIViewController {
             containerView.bottomAnchor.constraint(equalTo: textStackView.bottomAnchor, constant: 16)
         ])        
     }
+    
+    @objc
+    private func saveToPhotoLibrary() {
+        guard let image = imageView.image else {
+            print("No image to save")
+            return
+        }
+        
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(image(_: didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc
+    func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+            return
+        }
+        print("Saved!")
+    }
+
     
     @objc
     private func dismissDetailScreen() {
