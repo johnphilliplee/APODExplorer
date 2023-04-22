@@ -52,17 +52,23 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="ndZ-AB-EUI">
+                                <rect key="frame" x="185" y="418.66666666666669" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="O5Z-vl-6Lg" secondAttribute="trailing" id="St9-ik-5cX"/>
+                            <constraint firstItem="ndZ-AB-EUI" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="Vjm-Pq-TLp"/>
                             <constraint firstItem="O5Z-vl-6Lg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="huF-Zc-Evm"/>
                             <constraint firstItem="O5Z-vl-6Lg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="uNS-Zs-nzo"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="O5Z-vl-6Lg" secondAttribute="bottom" id="xG5-wQ-tmd"/>
+                            <constraint firstItem="ndZ-AB-EUI" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xa6-N9-rUp"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorView" destination="ndZ-AB-EUI" id="Bjb-WS-5yi"/>
                         <outlet property="collectionView" destination="O5Z-vl-6Lg" id="0zK-2n-Gz9"/>
                     </connections>
                 </viewController>

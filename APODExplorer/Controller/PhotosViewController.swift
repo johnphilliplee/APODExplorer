@@ -1,6 +1,13 @@
 import UIKit
 
 class PhotosViewController: UIViewController {
+    private enum State {
+        case initial
+        case loading
+        case loaded
+        case error(Error)
+    }
+    
     init(viewModel: APODViewModel, dataSource: PhotosViewControllerDataSource) {
         self.viewModel = viewModel
         self.dataSource = dataSource
@@ -16,10 +23,32 @@ class PhotosViewController: UIViewController {
     }
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var activityIndicatorView: UIActivityIndicatorView!
     
     private let imageLoader = ImageLoader()
     private var viewModel: APODViewModel
     private var dataSource: PhotosViewControllerDataSource
+    private var state: State = .initial {
+        didSet {
+            switch state {
+            case .initial:
+                activityIndicatorView.isHidden = true
+                collectionView.isHidden = true
+            case .loading:
+                activityIndicatorView.startAnimating()
+                activityIndicatorView.isHidden = false
+                collectionView.isHidden = true
+            case .loaded:
+                activityIndicatorView.stopAnimating()
+                activityIndicatorView.isHidden = true
+                collectionView.isHidden = false
+            case .error(_):
+                // Show error UI here
+                activityIndicatorView.isHidden = true
+                collectionView.isHidden = true
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,14 +90,17 @@ class PhotosViewController: UIViewController {
         let startDate = Date().addingTimeInterval(-(30 * 24 * 60 * 60))
         let endDate = Date().addingTimeInterval(-(1 * 24 * 60 * 60))
 
+        state = .loading
         viewModel.fetchAPODS(start: startDate, end: endDate) { [weak self] result in
-            switch result {
-            case .success():
-                DispatchQueue.main.async {
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    self?.state = .loaded
                     self?.collectionView.reloadData()
+                case .failure(let error):
+                    self?.state = .error(error)
+                    print("Error: \(error.localizedDescription)")
                 }
-            case .failure(let error):
-                print("Error: \(error.localizedDescription)")
             }
         }
     }
