@@ -12,7 +12,7 @@ class APODViewModel {
         apodService.fetchAPODs(start: start, end: end) { [weak self] result in
             switch result {
             case .success(let apods):
-                self?.apods = apods
+                self?.apods = apods.sorted().reversed()
                 completion(.success(()))
             case .failure(let error):
                 completion(.failure(error))

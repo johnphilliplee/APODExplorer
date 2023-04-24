@@ -59,9 +59,11 @@ class PhotoDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
         
         titleLabel.text = apod.title
-        dateLabel.text = apod.date
+        dateLabel.text = dateFormatter.string(from: apod.date)
         explanationLabel.text = apod.explanation
         
         if let imageURL = URL(string: apod.url) {

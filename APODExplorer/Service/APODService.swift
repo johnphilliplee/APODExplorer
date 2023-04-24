@@ -45,7 +45,12 @@ class NASAAPODService: APODService {
             switch result {
             case .success(let data):
                 do {
-                    let apods = try JSONDecoder().decode([APOD].self, from: data)
+                    let decoder = JSONDecoder()
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "yyyy-MM-dd"
+                    decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                    
+                    let apods = try decoder.decode([APOD].self, from: data)
                     completion(.success(apods))
                 } catch {
                     completion(.failure(error))
