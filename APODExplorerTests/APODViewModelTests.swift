@@ -49,19 +49,6 @@ final class APODViewModelTests: XCTestCase {
 }
 
 class MockAPODService: APODService {
-    let apods = [
-        APOD(date: "2022-04-01", title: "title 1", url: "url 1", explanation: "explanation 1"),
-        APOD(date: "2022-04-02", title: "title 2", url: "url 2", explanation: "explanation 2"),
-        APOD(date: "2022-04-03", title: "title 3", url: "url 3", explanation: "explanation 3"),
-        APOD(date: "2022-04-04", title: "title 4", url: "url 4", explanation: "explanation 4"),
-        APOD(date: "2022-04-05", title: "title 5", url: "url 5", explanation: "explanation 5"),
-        APOD(date: "2022-04-06", title: "title 6", url: "url 6", explanation: "explanation 6"),
-        APOD(date: "2022-04-07", title: "title 7", url: "url 7", explanation: "explanation 7"),
-        APOD(date: "2022-04-08", title: "title 8", url: "url 8", explanation: "explanation 8"),
-        APOD(date: "2022-04-09", title: "title 9", url: "url 9", explanation: "explanation 9"),
-        APOD(date: "2022-04-10", title: "title 10", url: "url 10", explanation: "explanation 10")
-    ]
-    
     enum MockAPODServiceError: Error {
         case mockError
     }
@@ -76,7 +63,29 @@ class MockAPODService: APODService {
         if withError {
             completion(.failure(MockAPODServiceError.mockError))
         } else {
+            let date = Date(timeIntervalSince1970: 100 * 24 * 60 * 60)
+            let apods = [
+                APOD(date: dateAway(from: date, by: -10), title: "title 1", url: "url 1", explanation: "explanation 1"),
+                APOD(date: dateAway(from: date, by: -9), title: "title 2", url: "url 2", explanation: "explanation 2"),
+                APOD(date: dateAway(from: date, by: -8), title: "title 3", url: "url 3", explanation: "explanation 3"),
+                APOD(date: dateAway(from: date, by: -7), title: "title 4", url: "url 4", explanation: "explanation 4"),
+                APOD(date: dateAway(from: date, by: -6), title: "title 5", url: "url 5", explanation: "explanation 5"),
+                APOD(date: dateAway(from: date, by: -5), title: "title 6", url: "url 6", explanation: "explanation 6"),
+                APOD(date: dateAway(from: date, by: -4), title: "title 7", url: "url 7", explanation: "explanation 7"),
+                APOD(date: dateAway(from: date, by: -3), title: "title 8", url: "url 8", explanation: "explanation 8"),
+                APOD(date: dateAway(from: date, by: -2), title: "title 9", url: "url 9", explanation: "explanation 9"),
+                APOD(date: dateAway(from: date, by: -1), title: "title 10", url: "url 10", explanation: "explanation 10")
+            ]
+            
             completion(.success(apods))
         }
+    }
+    
+    private func dateAway(from date: Date, by days: Int) -> Date {
+        let calendar = Calendar(identifier: .gregorian)
+        var adjustingComponent = DateComponents()
+        adjustingComponent.day = days
+        
+        return calendar.date(byAdding: adjustingComponent, to: date)!
     }
 }
