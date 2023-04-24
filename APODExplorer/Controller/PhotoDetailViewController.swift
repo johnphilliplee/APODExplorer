@@ -133,7 +133,7 @@ class PhotoDetailViewController: UIViewController {
     @objc
     private func saveToPhotoLibrary() {
         guard let image = imageView.image else {
-            print("No image to save")
+            presentAlert(title: "Saving failed", message: "No image to save")
             return
         }
         
@@ -143,12 +143,19 @@ class PhotoDetailViewController: UIViewController {
     @objc
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
         if let error = error {
-            print("Error: \(error.localizedDescription)")
+            presentAlert(title: "Saving failed", message: error.localizedDescription)
             return
         }
-        print("Saved!")
+        
+        presentAlert(title: "Success", message: "Photo saved in your library")
     }
 
+    private func presentAlert(title: String?, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "OK", style: .default)
+        alertController.addAction(action)
+        present(alertController, animated: true)
+    }
     
     @objc
     private func dismissDetailScreen() {
