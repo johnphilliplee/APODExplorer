@@ -34,13 +34,9 @@ class NASAAPODService: APODService {
     }
     
     func fetchAPODs(start: Date, end: Date, completion: @escaping (Result<[APOD], Error>) -> Void) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let startDate = dateFormatter.string(from: start)
-        let endDate = dateFormatter.string(from: end)
-        let endPoint = "https://api.nasa.gov/planetary/apod?api_key=\(apiKey)&start_date=\(startDate)&end_date=\(endDate)"
-        
-        guard let url = URL(string: endPoint) else {
+        let endpoint: Endpoint = .apods(from: start, to: end, apiKey: apiKey)
+                
+        guard let url = endpoint.url else {
             completion(.failure(NASAAPODService.invalidURL))
             return
         }
