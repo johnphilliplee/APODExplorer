@@ -37,16 +37,38 @@
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KH2-fP-hVT">
                                                     <rect key="frame" x="0.0" y="0.0" width="317" height="177"/>
                                                 </imageView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lOk-6x-aOH">
+                                                    <rect key="frame" x="0.0" y="153" width="317" height="24"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGy-8s-Xa3">
+                                                            <rect key="frame" x="4" y="1.6666666666666572" width="313" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <color key="textColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.32134726821192056" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="MYe-6v-Jcs"/>
+                                                        <constraint firstItem="nGy-8s-Xa3" firstAttribute="centerY" secondItem="lOk-6x-aOH" secondAttribute="centerY" id="SJb-ov-h0J"/>
+                                                        <constraint firstAttribute="trailing" secondItem="nGy-8s-Xa3" secondAttribute="trailing" id="YF9-Lz-sLD"/>
+                                                        <constraint firstItem="nGy-8s-Xa3" firstAttribute="leading" secondItem="lOk-6x-aOH" secondAttribute="leading" constant="4" id="aU9-WY-1vc"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="lOk-6x-aOH" secondAttribute="trailing" id="ASM-14-dfc"/>
                                                 <constraint firstItem="KH2-fP-hVT" firstAttribute="leading" secondItem="szD-xI-xHf" secondAttribute="leading" id="B8l-f3-Vvb"/>
                                                 <constraint firstAttribute="bottom" secondItem="KH2-fP-hVT" secondAttribute="bottom" id="Yry-Yg-DIR"/>
+                                                <constraint firstItem="lOk-6x-aOH" firstAttribute="leading" secondItem="szD-xI-xHf" secondAttribute="leading" id="f4W-h3-GJK"/>
+                                                <constraint firstAttribute="bottom" secondItem="lOk-6x-aOH" secondAttribute="bottom" id="qEH-fR-CxQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="KH2-fP-hVT" secondAttribute="trailing" id="tgD-ra-6oC"/>
                                                 <constraint firstItem="KH2-fP-hVT" firstAttribute="top" secondItem="szD-xI-xHf" secondAttribute="top" id="vU4-JW-FeL"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="317" height="177"/>
                                         <connections>
+                                            <outlet property="dateLabel" destination="nGy-8s-Xa3" id="Nsf-uZ-Ffz"/>
                                             <outlet property="imageView" destination="KH2-fP-hVT" id="EtH-Oe-p9N"/>
                                         </connections>
                                     </collectionViewCell>
@@ -78,6 +100,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="secondarySystemGroupedBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
